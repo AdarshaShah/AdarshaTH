@@ -1,0 +1,19 @@
+/**
+ * @description       : 
+ * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+ * @group             : 
+ * @last modified on  : 09-28-2020
+ * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+ * Modifications Log 
+ * Ver   Date         Author                               Modification
+ * 1.0   09-28-2020   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+**/
+// Use .soql files to store SOQL queries.
+// You can execute queries in VS Code by selecting the
+//     query text and running the command:
+//     SFDX: Execute SOQL Query with Currently Selected Text
+
+SELECT Id, Name FROM Account
+FIND { "grand*" } IN ALL FIELDS RETURNING Account(Name),
+Contact(LastName, FirstName, Email)
+SELECT  FROM Case 
