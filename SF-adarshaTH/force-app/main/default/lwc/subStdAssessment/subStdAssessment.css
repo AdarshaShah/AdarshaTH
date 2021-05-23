@@ -1,0 +1,37 @@
+u {
+  font-size: xx-large;
+  color: rgb(67, 167, 67);
+}
+
+h6 {
+  color: grey;
+}
+td {
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 5px;
+}
+
+.tableBox {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+table {
+  border-collapse: collapse;
+}
+table td {
+  border: 1px solid lightgray; 
+}
+table tr:first-child td {
+  border-top: 0;
+}
+table tr:last-child td {
+  border-bottom: 0;
+}
+table tr td:first-child {
+  border-left: 0;
+}
+table tr td:last-child {
+  border-right: 0;
+}
