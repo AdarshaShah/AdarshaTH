@@ -10,8 +10,8 @@
 **/
 ({
     clickCreate: function (component, event, helper) {
-        var validExpense = component
-            .find('expenseform')
+        var validitem = component
+            .find('itemform')
             .reduce(function (validSoFar, inputCmp) {
                 // Displays error messages for invalid fields
                 inputCmp.showHelpMessageIfInvalid();
@@ -19,11 +19,11 @@
             }, true);
 
         // If we pass error checking, do some real work
-        if (validExpense) {
-            // Create the new expense
-            var newExpense = component.get('v.newExpense');
-            console.log('Create expense: ' + JSON.stringify(newExpense));
-            helper.createExpense(component, newExpense);
+        if (validitem) {
+            // Create the new item
+            var newitem = component.get('v.newitem');
+            console.log('Create item: ' + JSON.stringify(newitem));
+            helper.createitem(component, newitem);
         }
     }
 })

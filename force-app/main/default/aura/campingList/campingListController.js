@@ -3,8 +3,8 @@
  * @test class        :
  * @author            : adarsha_shah@persistent.com
  * @reviewer          :
- * @last modified on  : 23-05-2021
- * @last modified by  : adarsha_shah@persistent.com
+ * @last modified on  : 05-29-2021
+ * @last modified by  : Adarsha Shah
  * Modifications Log
  * Ver   Date         Author                        Modification
  * 1.0   23-05-2021   adarsha_shah@persistent.com   Initial Version
@@ -26,21 +26,19 @@
         $A.enqueueAction(action);
     },
 
-    clickCreate: function (component, event, helper) {
-        var validitem = component
-            .find('itemform')
-            .reduce(function (validSoFar, inputCmp) {
-                // Displays error messages for invalid fields
-                inputCmp.showHelpMessageIfInvalid();
-                return validSoFar && inputCmp.get('v.validity').valid;
-            }, true);
-
-        // If we pass error checking, do some real work
-        if (validitem) {
-            // Create the new item
-            var newitem = component.get('v.newitem');
-            console.log('Create item: ' + JSON.stringify(newitem));
-            helper.createitem(component, newitem);
-        }
+    handleAddItem: function(component, event, helper){
+        let action = component.get("c.saveItem");
+        action.setParams({
+            "item": event.getParam("item")
+        });
+        action.setCallback(this, function(response){
+            let state = response.getState();
+            if (state === "SUCCESS") {
+                let items = component.get("v.items");
+                items.push(response.getReturnValue());
+                component.set("v.items", items);
+            }
+        });
+        $A.enqueueAction(action);
     }
 });

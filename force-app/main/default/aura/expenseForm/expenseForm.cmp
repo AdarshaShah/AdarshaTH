@@ -3,14 +3,16 @@
   @test class        : 
   @author            : adarsha_shah@persistent.com
   @reviewer          : 
-  @last modified on  : 23-05-2021
-  @last modified by  : adarsha_shah@persistent.com
+  @last modified on  : 05-29-2021
+  @last modified by  : Adarsha Shah
   Modifications Log 
   Ver   Date         Author                        Modification
   1.0   23-05-2021   adarsha_shah@persistent.com   Initial Version
 -->
 <aura:component>
+    <aura:registerEvent name="createExpense" type="c:expensesItemUpdate"/>
     <div aria-labelledby="newexpenseform">
+        
         <!-- BOXED AREA -->
         <fieldset class="slds-box slds-theme--default slds-container--small">
             <legend id="newexpenseform" class="slds-text-heading--small 
