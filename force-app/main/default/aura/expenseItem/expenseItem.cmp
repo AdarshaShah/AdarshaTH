@@ -1,11 +1,22 @@
+<!--
+  @description       : 
+  @test class        : 
+  @author            : adarsha_shah@persistent.com
+  @reviewer          : 
+  @last modified on  : 23-05-2021
+  @last modified by  : adarsha_shah@persistent.com
+  Modifications Log 
+  Ver   Date         Author                        Modification
+  1.0   23-05-2021   adarsha_shah@persistent.com   Initial Version
+-->
 <aura:component>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:attribute name="formatdate" type="Date"/>
     <aura:attribute name="expense" type="Expense__c"/>
+    <aura:registerEvent name="updateExpense" type="c:expensesItemUpdate"/>
 
     <lightning:card title="{!v.expense.Name}" iconName="standard:scan_card"
-                    class="{!v.expense.Reimbursed__c ?
-                           'slds-theme--success' : ''}">
+                    class="{!v.expense.Reimbursed__c ? 'slds-theme--success' : ''}">
         <aura:set attribute="footer">
             <p>Date: <lightning:formattedDateTime value="{!v.formatdate}"/></p>
             <p class="slds-text-title"><lightning:relativeDateTime value="{!v.formatdate}"/></p>

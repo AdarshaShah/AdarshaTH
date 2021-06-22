@@ -42,5 +42,10 @@
             console.log('Create expense: ' + JSON.stringify(newExpense));
             helper.createExpense(component, newExpense);
         }
+    },
+
+    handleUpdateExpense: function(component, event, helper) {
+        let updatedExp = event.getParam("expense");
+        helper.updateExpense(component, updatedExp);
     }
 });
